@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+  <div class="container">
+    <h1>Details</h1>
+    <!-- Here is container for cards  -->
+    <div class="container">
+        <div id="details-go-here">
+        </div>
+    </div>
+  </div>
+
+  <script>
+    function showDetails() {
+      // create a URL object
+      let params = new URL(window.location.href);
+      let id = params.searchParams.get("id");                   //parse "id"
+      let collection = params.searchParams.get("collection");   //parse "collection"
+
+      let message = "Collection is: " + collection;        //build message to display
+      message += "Document id is:  " + id;    
+      document.getElementById("details-go-here").innerHTML = message;  
+      
+      //can get to firebase to whole doc to display more details
+    }
+    showDetails();
+  </script>
+</body>
+</html>
